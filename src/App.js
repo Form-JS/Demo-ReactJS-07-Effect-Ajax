@@ -1,23 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import CounterEffect from './components/counter-effect/counter-effect';
+import { useState } from 'react';
+import MainNationalize from './components/nationalize/main-nationalize';
 
 function App() {
+
+  const [displayCounter, setDisplayCounter] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Demo 07 - useEffect &amp; Ajax</h1>
+      <hr />
+      <button onClick={() => setDisplayCounter(!displayCounter)}>Toggle</button>
+      {displayCounter && (
+        <CounterEffect />
+      )}
+      <hr />
+      <MainNationalize />
     </div>
   );
 }
